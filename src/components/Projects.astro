@@ -1,0 +1,66 @@
+---
+import NodeJSIcon from './icons/NodeJS.astro'
+import BootstrapIcon from './icons/Bootstrap.astro'
+import JavaScriptIcon from './icons/JavaScript.astro'
+import AzureIcon from './icons/AzureSQL.astro'
+import SQLIcon from './icons/SQLServer.astro'
+const TAGS = {
+
+NodeJS : {
+    name: "Node.js",
+    class: "bg-emerald-900	 text-white",
+    icon:  NodeJSIcon,
+},
+Bootstrap: {
+    name: "Bootstrap",
+    class: "bg-violet-900 text-white",
+    icon: BootstrapIcon
+},
+JavaScript: {
+    name: "JavaScript",
+    class: "bg-amber-400 text-black",
+    icon: JavaScriptIcon
+},
+Azure: {
+    name: "Azure SQL Database",
+    class: "bg-cyan-400	 text-blue",
+    icon: AzureIcon
+},
+
+SQL: {
+    name: "SQL SERVER",
+    class: "bg-slate-200 text-black font-bold",
+    icon: SQLIcon
+}
+}
+const PROJECTS = [
+    {
+    title: 'SADTA - DETECCIÓN, TRANSMISIÓN Y ANALISIS DE SEÑALES DIGITALES',
+    description: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    link: '#',
+    Github: '#',
+    image: "/projects/DiagramaN.webp",
+    tags: [TAGS.NodeJS, TAGS.Bootstrap, TAGS.JavaScript, TAGS.Azure, TAGS.SQL]
+}
+]
+---
+{
+
+    PROJECTS.map(({title,description,tags,image}) =>(
+        <article>
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+        <p>{description}</p>
+        <ul class="flex gap-x-4 flex-row"> 
+            {tags.map(tag =>(
+                <li>
+                    <span class={`flex  gap-x-2 rounded-full text-xs py-2 px-2 ${tag.class}`}>
+                    <tag.icon class="size-4"></tag.icon>
+                    {tag.name}</li>
+                </span>
+
+            ))}
+            </ul>    
+            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`} />
+        </article>
+    ))
+}

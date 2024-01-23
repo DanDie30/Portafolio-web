@@ -1,0 +1,37 @@
+---
+import ExperiencieItem from '../components/ExperienceItem.astro'
+const Experiencee = [
+    {
+        date: 'February 2022',
+        title: 'Aplicacion Tailwind',
+        description: 'Descripcion de tener acceso a diferentes cositas',
+        link: '#'
+
+    },
+    {
+        date: 'February 2023',
+        title: 'Aplicacion Tailwind',
+        description: 'Descripcion de tener acceso a diferentes cositas',
+        link: '#'
+
+    },
+    {
+        date: 'February 2024',
+        title: 'Aplicacion Tailwind',
+        description: 'Descripcion de tener acceso a diferentes cositas',
+        link: '#'
+
+    },
+
+
+]
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">  
+    {Experiencee.map(experiencee =>(
+            <li class="mb-10 ms-4">
+                <ExperiencieItem {... experiencee} />
+            </li>
+
+    ))}                
+    
+
