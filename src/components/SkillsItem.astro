@@ -1,0 +1,31 @@
+---
+import { string } from "astro/zod"
+import DashboardIcons from '../components/icons/Dashboard.astro'
+import Skill from "./Skill.astro"
+
+interface Props {
+  description: string
+  subtitle: string
+  icon: any
+}
+const {description,
+     subtitle,
+     icon: Icon} = Astro.props
+
+---
+
+<div class="relative flex flex-col bg-clip-border rounded-xl bg-transparent text-white shadow-none bg-gray-900/50 shadow-gray-900/50 backdrop-blur-lg border border-gray-800">
+  <div class="p-6 grid justify-center text-center">
+    <!-- Aquí se renderiza el icono importado dinámicamente -->
+    <div class="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-blue-500 p-2.5 text-white shadow">
+      <Icon />
+    </div>
+    
+    <h5 class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 mb-2">
+      {subtitle}
+    </h5>
+    <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal !text-gray-200">
+      {description}
+    </p>
+  </div>
+</div>

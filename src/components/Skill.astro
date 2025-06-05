@@ -1,0 +1,37 @@
+---
+// Skill.astro
+
+import SkillsItem from '../components/SkillsItem.astro'
+import DashboardIcons from './icons/Dashboard.astro'
+import DesrrolloWeb from './icons/DesrrolloWeb.astro'
+import ServiceDesk from './icons/ServiceDesk.astro'
+
+const Skillss = [
+  {
+    subtitle: 'Soporte Técnico',
+    description: 'Mantenimiento de Equipos, Diagnóstico y resolución de problemas, Soporte remoto y presencial, Gestión de Incidencias, Resolución de problemas de ciberseguridad.',
+    icon: ServiceDesk,
+  },
+  {
+    subtitle: 'Desarrollo Web',
+    description: 'JavaScript, Frameworks Front-End (React, Tailwind, Node.js, Express.js)',
+    icon: DesrrolloWeb,
+  },
+  {
+    subtitle: 'Análisis de Datos',
+    description: 'Tablas dinámicas, Extracción, Transformación y Visualización de Datos, Automatización con macros, Looker Studio.',
+    icon: DashboardIcons,
+  },
+]
+---
+
+<section class="px-4 py-28">
+  <h1 class="block antialiased tracking-normal font-sans font-semibold text-blue-gray-900 mb-4 text-3xl !leading-tight lg:text-5xl mb-24">
+    Skills
+  </h1>
+  <div class="container mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {Skillss.map((skill) => (
+      <SkillsItem {...skill} />
+    ))}
+  </div>
+</section>
